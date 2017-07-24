@@ -1,0 +1,50 @@
+logging:
+  level:
+    org.springframework.security: INFO
+    org.springframework.web: INFO
+
+jwt:
+  secret: testingJWTAuthentication
+  expiration: 2
+  header: Bearer
+
+spring:
+  rabbitmq:
+    host: rabbitmq
+  zipkin:
+    baseUrl: http://localhost:3333
+    
+ribbon:
+  eureka:
+    enabled: true
+    ReadTimeout: 20000
+    ConnectTimeout: 20000
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8762/eureka/
+  instance:
+    prefer-ip-address: true
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 20000
+  config:
+    stream:
+      maxConcurrentConnections: 20
+      
+      
+swagger:
+  title: You have swagger!
+  description: Swagger Page
+  termsOfServiceUrl: https://localhost:8080/TnC
+  contact:
+      name:
+      url: https://localhost:8080/contactInfo
+      email:
+  licenseUrl: https://localhost:8080/PrototypeLicense      
